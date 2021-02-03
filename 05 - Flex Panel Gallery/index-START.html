@@ -43,9 +43,10 @@
         background 0.2s;
       font-size: 20px;
       background-size: cover;
-      background-position: center;
+      background-position: center;      
       flex: 1;
       justify-content: center;
+      align-items: center;
       display: flex;
       flex-direction: column;
     }
@@ -56,21 +57,22 @@
     .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
     .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
 
-    /* Flex Items */
+    /* Flex Children */
     .panel > * {
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
+      border: 1px solid red;
       flex: 1 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .panel > *:first-child { transform: translateY(-100%); }
-    .panel.open-active > *:first-child { transform: translateY(0); }
-    .panel > *:last-child { transform: translateY(100%); }
-    .panel.open-active > *:last-child { transform: translateY(0); }
+    .panel > *:first-child{transform: translateY(-100%);}
+    .panel.open-active > *:first-child{transform: translateY(0);}
+    .panel > *:last-child{transform: translateY(100%);}
+    .panel.panel.open-active > *:last-child{transform: translateY(0);}
 
     .panel p {
       text-transform: uppercase;
@@ -87,7 +89,7 @@
       flex: 5;
       font-size: 40px;
     }
-    
+
     @media only screen and (max-width: 600px) {
       .panel p {
         font-size: 1em;
@@ -142,6 +144,8 @@
     panels.forEach(panel => panel.addEventListener('click', toggleOpen));
     panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
   </script>
+
+
 
 </body>
 </html>
